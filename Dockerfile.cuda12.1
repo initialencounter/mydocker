@@ -1,0 +1,18 @@
+from nvidia/cuda:12.1.0-devel-ubuntu22.04
+RUN apt update
+
+# xfce+tightvnvsercer
+RUN apt install xfce4 xfce4-terminal xvfb tightvncserver vim wget git sudo default-jdk -y && apt-get clean
+RUN source ~/.bashrc
+
+RUN wget https://mirror.sjtu.edu.cn/pytorch-wheels/cu121/torch-2.1.2%2Bcu121-cp310-cp310-linux_x86_64.whl
+RUN pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
+RUN pip install pandas transformers tensorboard jupyter -i https://mirror.sjtu.edu.cn/pypi/web/simple/
+
+RUN tar -xvf pycharm-community-2023.3.2.tar.gz
+RUN mv pycharm-community-2023.3.2 /opt/pycharm
+
+RUN rm torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl Miniconda3-py310_23.11.0-2-Linux-x86_64.sh pycharm-community-2023.3.2.tar.gz
+
+
+ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
