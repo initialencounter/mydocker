@@ -9,6 +9,7 @@ RUN wget https://mirror.sjtu.edu.cn/pytorch-wheels/cu121/torch-2.1.2%2Bcu121-cp3
 RUN pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision -f https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html
 RUN pip install pandas transformers tensorboard jupyter -i https://mirror.sjtu.edu.cn/pypi/web/simple/
 
+RUN wget https://download-cdn.jetbrains.com/python/pycharm-community-2023.3.2.tar.gz
 RUN tar -xvf pycharm-community-2023.3.2.tar.gz
 RUN mv pycharm-community-2023.3.2 /opt/pycharm
 
