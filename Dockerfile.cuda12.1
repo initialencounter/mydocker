@@ -2,7 +2,7 @@ from nvidia/cuda:12.1.0-devel-ubuntu22.04
 RUN apt update
 
 # xfce+tightvnvsercer
-RUN apt install xfce4 xfce4-terminal xvfb tightvncserver vim wget git sudo default-jdk -y && apt-get clean
+RUN apt install xfce4 xfce4-terminal xvfb tightvncserver vim wget git sudo default-jdk openssh-server -y && apt-get clean
 
 RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
 RUN bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3
