@@ -28,6 +28,9 @@ printf "$ALL_PASSWD\n$ALL_PASSWD\n\n" | passwd
 #vnc password config
 cp -f /entrypoint/set_vnc_passwd.sh.bak /root/set_vnc_passwd.sh
 sed -i "s/VNC_PASSWD/$ALL_PASSWD/" /root/set_vnc_passwd.sh
+sleep 1
+. /opt/miniconda3/bin/deactivate
+sleep 1
 expect /root/set_vnc_passwd.sh
 # vnc 
 if [ "$VNC_PORT" ]; then
