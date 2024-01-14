@@ -13,22 +13,20 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# donload pkgs
-RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
-RUN wget https://mirror.sjtu.edu.cn/pytorch-wheels/cu121/torch-2.1.2%2Bcu121-cp310-cp310-linux_x86_64.whl
-RUN wget https://download-cdn.jetbrains.com/python/pycharm-community-2023.3.2.tar.gz
-
 # install miniconda
-RUN bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3
-RUN . /opt/miniconda3/bin/activate && \
-    pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision pandas transformers tensorboard jupyter
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh && \
+    bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3 && \
+    echo ". /opt/miniconda3/bin/activate" >> ~/.bashrc && \
+    wget https://mirror.sjtu.edu.cn/pytorch-wheels/cu121/torch-2.1.2%2Bcu121-cp310-cp310-linux_x86_64.whl && \
+    . /opt/miniconda3/bin/activate && \
+    pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision pandas transformers tensorboard jupyter -i https://mirror.sjtu.edu.cn/pypi/web/simple/ && \
+    rm torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
 
-RUN echo ". /opt/miniconda3/bin/activate" >> ~/.bahsrc
-RUN tar -xvf pycharm-community-2023.3.2.tar.gz
-RUN mv pycharm-community-2023.3.2 /opt/pycharm
-
-# remove pkgs
-RUN rm torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl Miniconda3-py310_23.11.0-2-Linux-x86_64.sh pycharm-community-2023.3.2.tar.gz
+# install pycharm
+RUN wget https://download-cdn.jetbrains.com/python/pycharm-community-2023.3.2.tar.gz && \
+    tar -xvf pycharm-community-2023.3.2.tar.gz && \
+    mv pycharm-community-2023.3.2 /opt/pycharm && \
+    rm pycharm-community-2023.3.2.tar.gz
 
 # config entrypoint
 COPY entrypoint /entrypoint
