@@ -1,4 +1,10 @@
 from nvidia/cuda:12.1.0-devel-ubuntu20.04
+
+# set label
+LABEL maintainer="galaxy"
+LABEL description="cuda12.1"
+LABEL custom_message="cuda:12.1.0-devel-ubuntu20.04"
+
 RUN apt update
 ENV DEBIAN_FRONTEND=noninteractive
 # xfce+tightvnvsercer
