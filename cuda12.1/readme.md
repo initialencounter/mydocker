@@ -1,0 +1,1 @@
+docker run -e ALL_PASSWD="vip333" -e SSH_PORT=22 -e VNC_PORT=5901 -e JUPYTER_PORT=3389 -p 8000:22 -p 8001:5901 -p 8002:3389 -p 8003-8009:7863-7869 --gpus 2 -it registry.blockelite.cn:13508/aigalaxy:cuda12.1_ubuntu20.04_20240111
