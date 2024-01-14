@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+set PASSWD "VNC_PASSWD"
+spawn vncpasswd
+
+expect {
+    "Using password file /root/.vnc/passwd" {
+        send "$PASSWD\r"
+        exp_continue
+    }
+    "Verify:" {
+        send "$PASSWD\r"
+        exp_continue
+    }
+    "Would you like to enter a view-only password (y/n)?" {
+        send "n\n"
+    }
+}
+
+expect eof

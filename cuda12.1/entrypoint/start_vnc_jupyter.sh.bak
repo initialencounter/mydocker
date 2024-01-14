@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+spawn ssh root@127.0.0.1
+expect {
+"yes/no"
+{send "yes\r"; exp_continue;}
+"password:"
+{send "ALL_PASSWD\r";}
+}
+expect "root@*" {send "\r"}
+expect "root@*" {send "source ~/reset_vnc.sh\r"}
+expect "root@*" {send "jupyter notebook password\r"}
+expect {
+"Enter password:"
+{send "ALL_PASSWD\r"; exp_continue;}
+"Verify password:"
+{send "ALL_PASSWD\r";}
+}
+expect "root@*" {send "\r"}
+expect "root@*" {send "nohup jupyter notebook --allow-root &\r"}
+expect "nohup:*" {send "\r"}
+expect "root@*" {send "exit\r"}

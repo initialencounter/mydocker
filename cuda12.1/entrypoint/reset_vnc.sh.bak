@@ -1,0 +1,7 @@
+conda deactivate
+
+tightvncserver -kill :VNC_PORT
+rm -rf /tmp/.XVNC_PORT-lock /tmp/.X11-unix
+tightvncserver -geometry 1920x1080 :VNC_PORT
+
+conda activate
