@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=PyCharm
+Exec=/opt/pycharm/bin/pycharm.sh
+Icon=/opt/pycharm/bin/pycharm.png
+Type=Application
+Categories=Development;
