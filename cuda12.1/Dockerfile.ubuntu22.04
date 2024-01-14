@@ -3,7 +3,7 @@ RUN apt update
 ENV DEBIAN_FRONTEND=noninteractive
 # xfce+tightvnvsercer
 RUN apt-get update && \
-    apt-get install -y xfce4 xfce4-terminal xvfb tightvncserver expect vim wget git sudo default-jdk && \
+    apt-get install -y xfce4 xfce4-terminal xvfb tightvncserver expect vim wget git sudo default-jdk openssh-server && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -17,7 +17,7 @@ RUN bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3
 RUN . /opt/miniconda3/bin/activate && \
     pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision pandas transformers tensorboard jupyter
 
-
+RUN echo ". /opt/miniconda3/bin/activate" >> ~/.bahsrc
 RUN tar -xvf pycharm-community-2023.3.2.tar.gz
 RUN mv pycharm-community-2023.3.2 /opt/pycharm
 
@@ -25,8 +25,7 @@ RUN mv pycharm-community-2023.3.2 /opt/pycharm
 RUN rm torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl Miniconda3-py310_23.11.0-2-Linux-x86_64.sh pycharm-community-2023.3.2.tar.gz
 
 # config entrypoint
-COPY entrypoint /
-RUN /entrypoint/set.sh
-RUN cat entrypoint.sh >> /opt/nvidia/nvidia_entrypoint.sh
+COPY entrypoint /entrypoint
+RUN cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh
 
 ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
