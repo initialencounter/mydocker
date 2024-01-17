@@ -30,6 +30,8 @@ RUN wget https://download-cdn.jetbrains.com/python/pycharm-community-2023.3.2.ta
 
 # config entrypoint
 COPY entrypoint /entrypoint
-RUN cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh
+RUN mkdir /root/Desktop && \
+    cp /entrypoint/pycharm.desktop /root/Desktop/pycharm.desktop && \
+    cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh
 
 ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
