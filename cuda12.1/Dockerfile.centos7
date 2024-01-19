@@ -1,5 +1,10 @@
 from nvidia/cuda:12.1.0-devel-centos7
 
+# set label
+LABEL maintainer="galaxy"
+LABEL description="cuda12.1"
+LABEL custom_message="cuda:12.1.0-devel-centos7"
+
 # xfce+tightvnvsercer
 RUN yum install -y epel-release && \
     yum install -y \
@@ -23,18 +28,20 @@ RUN yum install -y epel-release && \
     openssh-server && \
     yum clean all
 
-# copy local pkgs
-COPY pkgs /pkgs
-
 # install miniconda
-RUN bash /pkgs/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3
-RUN . /opt/miniconda3/bin/activate && \
-    pip install /pkgs/torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision pandas transformers tensorboard jupyter  -i https://mirror.sjtu.edu.cn/pypi/web/simple/
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh && \
+    bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3 && \
+    echo ". /opt/miniconda3/bin/activate" >> ~/.bashrc && \
+    wget https://mirror.sjtu.edu.cn/pytorch-wheels/cu121/torch-2.1.2%2Bcu121-cp310-cp310-linux_x86_64.whl && \
+    . /opt/miniconda3/bin/activate && \
+    pip install torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl torchaudio torchvision pandas transformers tensorboard jupyter -i https://mirror.sjtu.edu.cn/pypi/web/simple/ && \
+    rm torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
 
-RUN echo ". /opt/miniconda3/bin/activate" >> ~/.bashrc
 # install pycharm
-RUN tar -xvf /pkgs/pycharm-community-2023.3.2.tar.gz
-RUN mv pycharm-community-2023.3.2 /opt/pycharm
+RUN wget https://download-cdn.jetbrains.com/python/pycharm-community-2023.3.2.tar.gz && \
+    tar -xvf pycharm-community-2023.3.2.tar.gz && \
+    mv pycharm-community-2023.3.2 /opt/pycharm && \
+    rm pycharm-community-2023.3.2.tar.gz
 
 # config entrypoint
 COPY entrypoint /entrypoint
