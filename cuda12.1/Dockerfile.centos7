@@ -40,7 +40,11 @@ RUN mv pycharm-community-2023.3.2 /opt/pycharm
 COPY entrypoint /entrypoint
 RUN mkdir /root/Desktop && \
     cp /entrypoint/pycharm.desktop /root/Desktop/pycharm.desktop && \
-    cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh
+    cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh && \
+    sed -i "s/service ssh start/\/usr\/sbin\/sshd/" /opt/nvidia/nvidia_entrypoint.sh && \
+    sed -i "s/Using password file \/root\/.vnc\/passwd/Password:/" /entrypoint/set_vnc_passwd.sh.bak && \
+    chmod 777 /entrypoint/gen_sshkeys.sh && \
+    /entrypoint/gen_sshkeys.sh && rm /entrypoint/gen_sshkeys.sh -rf
 
 
 ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
