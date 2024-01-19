@@ -43,8 +43,10 @@ RUN mkdir /root/Desktop && \
     cp /entrypoint/entrypoint.sh /opt/nvidia/nvidia_entrypoint.sh && \
     sed -i "s/service ssh start/\/usr\/sbin\/sshd/" /opt/nvidia/nvidia_entrypoint.sh && \
     sed -i "s/Using password file \/root\/.vnc\/passwd/Password:/" /entrypoint/set_vnc_passwd.sh.bak && \
+    sed -i "s/tightvncserver/vncserver/" /entrypoint/reset_vnc.sh.bak && \
     chmod 777 /entrypoint/gen_sshkeys.sh && \
-    /entrypoint/gen_sshkeys.sh && rm /entrypoint/gen_sshkeys.sh -rf
+    /entrypoint/gen_sshkeys.sh && \
+    rm /entrypoint/gen_sshkeys.sh -rf
 
 
 ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
