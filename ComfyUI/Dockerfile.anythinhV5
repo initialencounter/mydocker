@@ -1,0 +1,14 @@
+FROM initialencounter/comfyui:latest-lite
+
+# set label
+LABEL maintainer="galaxy"
+LABEL description="ComfyUI"
+LABEL custom_message="AnythingV5"
+
+#复制模型到容器
+# COPY /checkpoints/majicmixFantasy_v10.safetensors /app/models/checkpoints/
+COPY AnythingV5Ink_ink.safetensors /app/models/checkpoints/
+
+WORKDIR "/app"
+
+CMD ["python3","main.py","--listen","0.0.0.0","--port","7860"]

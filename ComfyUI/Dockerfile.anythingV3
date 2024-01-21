@@ -1,0 +1,16 @@
+FROM initialencounter/comfyui:latest-lite
+
+# set label
+LABEL maintainer="galaxy"
+LABEL description="ComfyUI"
+LABEL custom_message="Anything-v3.0-For-Tachie-ema-fp16.safetensors"
+
+#复制模型到容器
+# COPY /checkpoints/majicmixFantasy_v10.safetensors /app/models/checkpoints/
+# COPY /checkpoints/AnythingV5Ink_ink.safetensors /app/models/checkpoints/
+COPY Anything-v3.0-For-Tachie-ema-fp16.safetensors /app/models/checkpoints/
+COPY anythingKlF8Anime2VaeFtMse840000_klF8Anime2Pt.pt /app/models/vae/
+
+WORKDIR "/app"
+
+CMD ["python3","main.py","--listen","0.0.0.0","--port","7860"]
