@@ -17,7 +17,7 @@
 bash -c "$(curl -L https://github.com/initialencounter/mydocker/raw/main/utils/nvidia-container.sh)"
 ```
 
-## switch registry
+## switch inmsecure registry
 
 ```shell
 vi /etc/docker/daemon.json
