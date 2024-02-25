@@ -1,0 +1,1 @@
+docker run -it -d -e WS_PORT=3002 -e WS_ENABLE=true -e ACCOUNT=2743836019 -p 8011:5900 -p 8012:6801 -p 8013:3002 initialencounter/liteloader:qq3.2.5-21453_ll1.0.3_ob3.7.0
