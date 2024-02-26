@@ -23,3 +23,6 @@ RUN curl -o /root/linuxqq_3.2.5-21453_amd64.deb https://dldir1.qq.com/qqfile/qq/
     echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
     echo "[program:x11vnc]" >> /etc/supervisor/supervisord.conf && \
     echo "command=/usr/bin/x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd" >> /etc/supervisor/supervisord.conf
+
+# 设置容器启动时运行的命令
+ENTRYPOINT ["/root/start.sh"]
