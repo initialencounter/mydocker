@@ -11,6 +11,8 @@ fi
 
 if [ "$HTTP_HOST" ]; then
     sed -i "s|HTTP_HOST|$HTTP_HOST|" $CONFIG_PATH
+else
+    sed -i "s/\"HTTP_HOST\"/\"\"/" $CONFIG_PATH
 fi
 
 if [ "$WS_PORT" ]; then
@@ -21,6 +23,8 @@ fi
 
 if [ "$WS_HOST" ]; then
     sed -i "s|WS_HOST|$WS_HOST|" $CONFIG_PATH
+else
+    sed -i "s/\"WS_HOST\"/\"\"/" $CONFIG_PATH
 fi
 
 if [ "$HTTP_ENABLE" ]; then
@@ -54,7 +58,9 @@ else
 fi
 
 if [ "$TOKEN" ]; then
-    sed -i "s/TOKEN/$TOKEN/" $CONFIG_PATH
+    sed -i "s|TOKEN|$TOKEN|" $CONFIG_PATH
+else
+    sed -i "s/\"TOKEN\"/\"\"/" $CONFIG_PATH
 fi
 
 if [ "$F2U_ENABLE" ]; then
