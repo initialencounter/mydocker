@@ -1,10 +1,10 @@
-name: ci
+name: liteloader-docker-publish
 
 on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'qq*_ll*_' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   docker:
@@ -32,6 +32,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: LiteLoader/llonebot/.
+          context: LiteLoader/.
           push: true
-          tags: initialencounter/liteloader-onebot-api:${{ env.TAG_NAME }}
+          tags: initialencounter/liteloader:${{ env.TAG_NAME }}
