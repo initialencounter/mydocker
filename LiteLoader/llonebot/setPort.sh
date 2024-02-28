@@ -1,5 +1,10 @@
-mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLOneBot
 CONFIG_PATH=/opt/QQ/resources/app/LiteLoader/data/LLOneBot/config_$ACCOUNT.json
+if [ -f "$CONFIG_PATH" ]; then
+    echo "您的会话正处于 proot 容器内"
+    exit 1
+fi
+
+mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLOneBot
 cp -f /root/config.txt $CONFIG_PATH
 
 
