@@ -10,6 +10,9 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Set Tag Name
+        run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV  # Set tag name to an environment variable
       -
         name: Checkout
         uses: actions/checkout@v4
@@ -31,4 +34,4 @@ jobs:
         with:
           context: LiteLoader/llonebot/.
           push: true
-          tags: initialencounter/liteloader-onebot-api:${GITHUB_REF:10}
+          tags: initialencounter/liteloader-onebot-api:${{ env.TAG_NAME }}
