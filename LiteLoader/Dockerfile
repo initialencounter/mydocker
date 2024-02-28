@@ -1,4 +1,4 @@
-FROM initialencounter/liteloader:base-alpha.3
+FROM initialencounter/liteloader:base
 COPY start.sh /root/
 
 # 安装Linux QQ
