@@ -1,4 +1,4 @@
-if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json"]; then
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
     mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot && \
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
 fi
