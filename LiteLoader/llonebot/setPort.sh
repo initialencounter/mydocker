@@ -1,3 +1,7 @@
+if [ -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json"]; then
+    mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot && \
+    unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+fi
 CONFIG_PATH=/opt/QQ/resources/app/LiteLoader/data/LLOneBot/config_$ACCOUNT.json
 if [ -f "$CONFIG_PATH" ]; then
     exit 1
