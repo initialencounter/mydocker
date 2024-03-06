@@ -32,6 +32,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: LiteLoader/cc/.
+          context: LiteLoader/chronocat/.
           push: true
           tags: initialencounter/${{ env.TAG_NAME }}
