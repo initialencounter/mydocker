@@ -1,13 +1,22 @@
-if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
-    mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot && \
-    unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+# 安装 Liteloader
+if [ ! -f "/LiteLoader/package.json" ]; then
+    mkdir -p /LiteLoader && \
+    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader && \
+    sed -i '1s/^/require("\/opt\/QQ\/resources\/app\/LiteLoader");\n/' /app_launcher/index.js
 fi
-CONFIG_PATH=/opt/QQ/resources/app/LiteLoader/data/LLOneBot/config_$ACCOUNT.json
+
+# 安装 LLOneBot
+if [ ! -f "/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
+    mkdir -p /LiteLoader/plugins/LLOneBot && \
+    unzip /tmp/LLOneBot.zip -d /LiteLoader/plugins/LLOneBot/
+fi
+
+CONFIG_PATH=/LiteLoader/data/LLOneBot/config_$ACCOUNT.json
 if [ -f "$CONFIG_PATH" ]; then
     exit 1
 fi
 
-mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLOneBot
+mkdir -p /LiteLoader/data/LLOneBot
 cp -f /root/config.txt $CONFIG_PATH
 
 
