@@ -1,4 +1,4 @@
-name: llob-docker-publish
+name: cc-docker-publish
 
 on:
   push:
