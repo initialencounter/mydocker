@@ -14,7 +14,6 @@ if [ ! -f "/LiteLoader/plugins/*Chronocat*/manifest.json" ]; then
     unzip /tmp/chronocat-llqqnt-engine-chronocat-event.zip  -d /LiteLoader/plugins/
     unzip /tmp/chronocat-llqqnt-engine-poke.zip -d /LiteLoader/plugins/
     unzip /tmp/chronocat-llqqnt.zip -d /LiteLoader/plugins/
-    unzip /tmp/chronocat.zip -d /LiteLoader/plugins/
 fi
 
 bash /root/start.sh

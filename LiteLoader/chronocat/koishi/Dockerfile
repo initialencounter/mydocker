@@ -9,11 +9,9 @@ RUN apt-get update && apt-get install xz-utils && \
     # 解压并删除 nodejs 源文件
     tar -xvf $NODE_VERSION.tar.xz -C /usr/local/ && \
     rm $NODE_VERSION.tar.xz -f && \
-    echo '#!/usr/bin/env node' >> /usr/local/bin/yarn && \
-    echo 'require("/root/koishi/.yarn/releases/yarn-4.0.1.cjs");' >> /usr/local/bin/yarn && \
-    chmod +x /usr/local/bin/yarn && \
     echo "export PATH=\$PATH:/usr/local/$NODE_VERSION/bin" >> /etc/profile && \
-
+    source /etc/profile && \
+    npm i -g yarn && \
     # 克隆 koishi
     git clone https://github.com/koishijs/koishi "/root/koishi"
 
