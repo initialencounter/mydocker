@@ -1,4 +1,4 @@
-FROM initialencounter/liteloader:qq3.2.5-21453_ll1.0.3_
+FROM initialencounter/liteloader:qq3.2.5-21453_ll1.0.3__
 
 COPY config.txt /root/
 
