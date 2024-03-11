@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install xz-utils && \
     npm i -g yarn && \
     # 克隆 koishi
     git clone https://github.com/koishijs/koishi "/root/koishi" && \
+    cd /root/koishi && \
     yarn
 
 # 替换启动脚本
