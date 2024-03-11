@@ -3,8 +3,7 @@
 # 安装 Liteloader
 if [ ! -f "/LiteLoader/package.json" ]; then
     mkdir -p /LiteLoader && \
-    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader && \
-    sed -i '1s/^/require("\/LiteLoader");\n/' /opt/QQ/resources/app/app_launcher/index.js
+    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader
 fi
 
 service dbus start
