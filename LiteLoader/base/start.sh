@@ -1,4 +1,12 @@
 #!/bin/bash
+
+# 安装 Liteloader
+if [ ! -f "/LiteLoader/package.json" ]; then
+    mkdir -p /LiteLoader && \
+    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader && \
+    sed -i '1s/^/require("\/LiteLoader");\n/' /opt/QQ/resources/app/app_launcher/index.js
+fi
+
 service dbus start
 rm -f /tmp/.X1-lock
 export DISPLAY=:1
