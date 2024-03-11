@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install xz-utils && \
     npm i -g yarn && \
     # 克隆 koishi
     git clone https://github.com/koishijs/koishi "/root/koishi" && \
+    sed -Ei 's/(([[:space:]]*)maxPort.*)/\1\n\2host: 0.0.0.0/' /root/koishi/koishi.yml && \
     cd /root/koishi && \
     yarn
 
