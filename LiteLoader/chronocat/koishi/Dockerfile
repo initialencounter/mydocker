@@ -7,13 +7,14 @@ ENV NODE_VERSION="node-v20.11.1-linux-$AH"
 RUN apt-get update && apt-get install xz-utils && \
     curl -o $NODE_VERSION.tar.xz https://nodejs.org/dist/v20.11.1/$NODE_VERSION.tar.xz && \
     # 解压并删除 nodejs 源文件
-    tar -xvf $NODE_VERSION.tar.xz -C /usr/local/ && \
+    tar -xf $NODE_VERSION.tar.xz -C /usr/local/ && \
     rm $NODE_VERSION.tar.xz -f && \
     echo "export PATH=\$PATH:/usr/local/$NODE_VERSION/bin" >> /etc/profile && \
     . /etc/profile && \
     npm i -g yarn && \
     # 克隆 koishi
-    git clone https://github.com/koishijs/koishi "/root/koishi"
+    git clone https://github.com/koishijs/koishi "/root/koishi" && \
+    yarn
 
 # 替换启动脚本
 COPY entrypoint.sh /etc/entrypoint.sh

@@ -18,4 +18,5 @@ fi
 
 bash /root/start.sh &
 cd /root/koishi
-yarn start
+source /etc/profile
+yarn && yarn start
