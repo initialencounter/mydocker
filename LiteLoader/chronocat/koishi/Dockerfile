@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install xz-utils && \
     rm $NODE_VERSION.tar.xz -f && \
     echo '#!/usr/bin/env node' >> /usr/local/bin/yarn && \
     echo 'require("/root/koishi/.yarn/releases/yarn-4.0.1.cjs");' >> /usr/local/bin/yarn && \
+    chmod +x /usr/local/bin/yarn && \
     echo "export PATH=\$PATH:/usr/local/$NODE_VERSION/bin" >> /etc/profile && \
 
     # 克隆 koishi
