@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install xz-utils && \
     tar -xvf $NODE_VERSION.tar.xz -C /usr/local/ && \
     rm $NODE_VERSION.tar.xz -f && \
     echo "export PATH=\$PATH:/usr/local/$NODE_VERSION/bin" >> /etc/profile && \
-    source /etc/profile && \
+    . /etc/profile && \
     npm i -g yarn && \
     # 克隆 koishi
     git clone https://github.com/koishijs/koishi "/root/koishi"
