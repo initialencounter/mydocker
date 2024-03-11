@@ -9,7 +9,7 @@ fi
 service dbus start
 rm -f /tmp/.X1-lock
 export DISPLAY=:1
-Xvfb :1 -screen 0 720x512x16 &
+Xvfb :1 -screen 0 1280x1024x16 &
 fluxbox &
 sleep 2
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
