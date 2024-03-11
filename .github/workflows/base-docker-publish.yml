@@ -32,6 +32,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: LiteLoader/base/.
+          context: LiteLoader/base-base/.
           push: true
           tags: initialencounter/liteloader:${{ env.TAG_NAME }}

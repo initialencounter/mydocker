@@ -4,7 +4,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'cc:*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'qq*_ll*_cc*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   docker:
@@ -34,4 +34,4 @@ jobs:
         with:
           context: LiteLoader/chronocat/.
           push: true
-          tags: initialencounter/${{ env.TAG_NAME }}
+          tags: initialencounter/liteloader:${{ env.TAG_NAME }}

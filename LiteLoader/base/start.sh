@@ -1,5 +1,4 @@
 #!/bin/bash
-bash /root/setPort.sh
 service dbus start
 rm -f /tmp/.X1-lock
 export DISPLAY=:1

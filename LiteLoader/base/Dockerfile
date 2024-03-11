@@ -1,37 +1,27 @@
-FROM phusion/baseimage:jammy-1.0.2
+FROM initialencounter/liteloader:base
+COPY start.sh /root/
 
-# 设置环境变量
-ENV DEBIAN_FRONTEND=noninteractive
-ENV VNC_PASSWD=vncpasswd
+# 安装Linux QQ
+RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.5_240305_amd64_01.deb && \
+    dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
 
-# 安装必要的软件包
-RUN apt-get update && apt-get install -y \
-    openbox \
-    curl \
-    unzip \
-    x11vnc \
-    xvfb \
-    fluxbox \
-    supervisor \
-    libnotify4 \
-    libnss3 \
-    xdg-utils \
-    libsecret-1-0 \
-    libgbm1 \
-    libasound2 \
-    fonts-wqy-zenhei \
-    git \
-    gnutls-bin && \    
-    apt autoremove -y && \
-    apt clean && \
-    rm -rf \
-    /var/lib/apt/lists/* \
-    /tmp/* \
-    /var/tmp/* && \
+    # 下载LiteLoader
+    curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
+    mkdir -p /LiteLoader && \
 
-    # 安装novnc
-    git config --global http.sslVerify false && \
-    git config --global http.postBuffer 1048576000 && \
-    cd /opt && git clone https://mirror.ghproxy.com/https://github.com/novnc/noVNC.git && \
-    cd /opt/noVNC/utils && git clone https://mirror.ghproxy.com/https://github.com/novnc/websockify.git && \
-    cp /opt/noVNC/vnc.html /opt/noVNC/index.html
+    # 创建必要的目录
+    mkdir -p ~/.vnc && \
+
+    # 设置启动脚本权限
+    chmod +x /root/start.sh  && \
+
+    # 配置supervisor
+    echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
+    echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
+    echo "[program:x11vnc]" >> /etc/supervisor/supervisord.conf && \
+    echo "command=/usr/bin/x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd" >> /etc/supervisor/supervisord.conf
+
+VOLUME ["/LiteLoader"]
+
+# 设置容器启动时运行的命令
+ENTRYPOINT ["/root/start.sh"]
