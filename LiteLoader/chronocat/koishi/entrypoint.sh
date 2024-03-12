@@ -18,8 +18,8 @@ fi
 bash /root/start.sh &
 
 if [ ! -f "/koishi/koishi.yml" ]; then
-    mv /koishi /koishi-bak
-    cp -rf /root/koishi /koishi
+    cp -rf /koishi /koishi-bak/
+    cp -rf /root/koishi/* /koishi/
 fi
-
-source /etc/profile && cd /koishi && yarn start
+source /etc/profile
+cd /koishi && npm run start
