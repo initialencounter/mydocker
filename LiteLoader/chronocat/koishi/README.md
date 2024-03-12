@@ -11,6 +11,8 @@ docker run -d -v cc-koishi:/LiteLoader -e VNC_PASSWD=vncpasswd -p 6081:6081 -p 5
 
     可通过命令 `docker volume list` 查看
 
-- 若挂载的 volume (/koishi) 中不存在 koishi.yml, 则会将 volume (/koishi) 的数据移动到 volume (/koishi-bak)
+- 若挂载的 volume (/koishi) 中不存在 `koishi.yml`, 则会将 volume (/koishi) 的数据移动到 volume (/koishi-bak)
 
+    并将 /root/koishi 的 boilerplate 移动到 volume (/koishi)
+    
     以此来防止数据意外丢失
