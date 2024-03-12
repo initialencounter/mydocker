@@ -3,8 +3,7 @@
 # 安装 Liteloader
 if [ ! -f "/LiteLoader/package.json" ]; then
     mkdir -p /LiteLoader && \
-    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader && \
-    sed -i '1s/^/require("\/LiteLoader");\n/' /opt/QQ/resources/app/app_launcher/index.js
+    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader
 fi
 
 # 安装 chronocat
@@ -17,6 +16,10 @@ if [ ! -f "/LiteLoader/plugins/*Chronocat*/manifest.json" ]; then
 fi
 
 bash /root/start.sh &
-cd /root/koishi
-source /etc/profile
-yarn && yarn start
+
+if [ ! -f "/koishi/koishi.yml" ]; then
+    mv /koishi /koishi-bak
+    cp -rf /root/koishi /koishi
+fi
+
+source /etc/profile && cd /koishi && yarn start

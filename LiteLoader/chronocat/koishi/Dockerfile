@@ -17,8 +17,11 @@ RUN apt-get update && apt-get install xz-utils && \
     git clone https://github.com/koishijs/boilerplate "koishi" && \
     sed -Ei 's/(([[:space:]]*)maxPort.*)/\1\n\2host: 0.0.0.0/' /root/koishi/koishi.yml && \
     cd /root/koishi && \
-    yarn
+    yarn workspaces focus --production && \
+    mkdir -p /koishi && \
+    mkdir -p /koishi-bak
 
+VOLUME ["/koishi","/koishi-bak"]
 # 替换启动脚本
 COPY entrypoint.sh /etc/entrypoint.sh
 RUN chmod +x /etc/entrypoint.sh
