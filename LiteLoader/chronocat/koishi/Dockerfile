@@ -1,4 +1,4 @@
-FROM initialencounter/liteloader:qq3.2.5-240305_ll1.0.3_cc0.2.4
+FROM initialencounter/liteloader:chronocat
 
 # 设置环境变量
 ENV AH=x64

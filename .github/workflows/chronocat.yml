@@ -1,10 +1,7 @@
-name: llob-docker-publish
+name: chronocat
 
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - 'qq*_ll*_ob*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  workflow_dispatch:
 
 jobs:
   docker:
@@ -32,6 +29,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: LiteLoader/llonebot/.
+          context: LiteLoader/chronocat/.
           push: true
-          tags: initialencounter/liteloader:${{ env.TAG_NAME }}
+          tags: initialencounter/liteloader:chronocat

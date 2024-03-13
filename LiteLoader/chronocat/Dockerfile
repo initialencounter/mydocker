@@ -1,4 +1,4 @@
-FROM initialencounter/liteloader:qq3.2.5-240305_ll1.0.3_
+FROM initialencounter/liteloader:latest
 
 # 替换启动脚本
 COPY entrypoint.sh /etc/entrypoint.sh
