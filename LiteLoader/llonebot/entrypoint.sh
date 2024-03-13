@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # 安装 Liteloader
 if [ ! -f "/LiteLoader/package.json" ]; then
     mkdir -p /LiteLoader && \
