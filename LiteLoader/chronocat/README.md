@@ -1,7 +1,7 @@
 # 使用方法
 
 ```shell
-docker run -d -e VNC_PASSWD=vncpasswd -p 6081:6081 -p 5500:5500 --name cc initialencounter/liteloader:qq3.2.5-240305_ll1.0.3_cc0.2.4
+docker run -d -e VNC_PASSWD=vncpasswd -p 6081:6081 -p 5500:5500 --name cc initialencounter/liteloader:chronocat
 ```
 
 ## 环境变量
@@ -35,5 +35,5 @@ docker volume create qqnt2
 在 Koishi 容器中，你可以通过 http://chronocat:5500 来访问 Chronocat 容器提供的 Satori 服务
 ```shell
 docker run -d -p 5140:5140 -v koishi:/koishi:rw --network bot -- name koishi koishijs/koishi
-docker run -d -v qqnt2:/LiteLoader --network bot -e VNC_PASSWD=vncpasswd -p 6081:6081 --name chronocat initialencounter/liteloader:qq3.2.5-240305_ll1.0.3_cc0.2.4
+docker run -d -v qqnt2:/LiteLoader --network bot -e VNC_PASSWD=vncpasswd -p 6081:6081 --name chronocat initialencounter/liteloader:chronocat
 ```
