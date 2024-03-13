@@ -3,6 +3,7 @@ FROM initialencounter/liteloader:latest
 COPY config.txt /root/
 
 COPY entrypoint.sh /etc/entrypoint.sh
+RUN chmod +x /etc/entrypoint.sh
 # 安装 LiteLoader-OnebotApi
 RUN mkdir -p /LiteLoader/plugins/LLOneBot && \
     curl -L -o /tmp/LLOneBot.zip https://github.com/LLOneBot/LLOneBot/releases/download/v3.14.1/LLOneBot.zip
