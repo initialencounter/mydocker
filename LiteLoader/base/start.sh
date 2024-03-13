@@ -17,7 +17,7 @@ chown $(id -un):$(id -gn) $XDG_RUNTIME_DIR
 rm -f /tmp/.X1-lock
 service dbus start
 sleep 2
-Xvfb :1 -screen 0 1280x1024x16 &
+Xvfb :1 -screen 0 1080x760x16 &
 sleep 2
 dbus-daemon --session --address=$DBUS_SESSION_BUS_ADDRESS --nofork --nopidfile --syslog-only &
 sleep 2
