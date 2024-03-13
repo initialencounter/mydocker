@@ -7,7 +7,7 @@ docker network create bot
 docker volume create koishi
 docker volume create qqnt
 docker run -d -p 5140:5140 -v koishi:/koishi:rw --network bot koishijs/koishi
-docker run -d -v qqnt:/LiteLoader -v /etc/localtime:/etc/localtime:ro --network bot -e VNC_PASSWD=vncpasswd -p 6081:6081 -e WS_ENABLE=true --name llob initialencounter/liteloader:qq3.2.5-240305_ll1.0.3_ob3.14.0
+docker run -d -v qqnt:/LiteLoader -v /etc/localtime:/etc/localtime:ro --network bot -e VNC_PASSWD=vncpasswd -p 6081:6081 -e WS_ENABLE=true --name llob initialencounter/liteloader:llonebot
 ```
 
 # Usage Advance
@@ -48,17 +48,17 @@ docker run -d -v qqnt:/LiteLoader -v /etc/localtime:/etc/localtime:ro --network 
 ## 正向 WS
 
 ```shell
-docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8011:5900 -p 8012:6081 -e ACCOUNT=11111111 -e WS_ENABLE=true -e WS_PORT=3001 -p 8013:3001 --name llob initialencounter/liteloader:latest
+docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8011:5900 -p 8012:6081 -e ACCOUNT=11111111 -e WS_ENABLE=true -e WS_PORT=3001 -p 8013:3001 --name llob initialencounter/liteloader:llonebot
 ```
 
 
 ## 反向 WS
 
 ```shell
-docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8021:5900 -p 8022:6081 -e ACCOUNT=11111111 -e WS_HOST=ws://1.1.1.1:5140/onebot -e WSR_ENABLE=true --name llob initialencounter/liteloader:latest
+docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8021:5900 -p 8022:6081 -e ACCOUNT=11111111 -e WS_HOST=ws://1.1.1.1:5140/onebot -e WSR_ENABLE=true --name llob initialencounter/liteloader:llonebot
 ```
 
 ## HTTP
 
 ```shell
-docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8031:5900 -p 8032:6081 -e ACCOUNT=11111111 -e HTTP_PORT=3000 -e HTTP_ENABLE=true -p 8033:3000 --name llob initialencounter/liteloader:latest
+docker run -d -v ${PWD}/LiteLoader :/LiteLoader -e VNC_PASSWD=vncpasswd -p 8031:5900 -p 8032:6081 -e ACCOUNT=11111111 -e HTTP_PORT=3000 -e HTTP_ENABLE=true -p 8033:3000 --name llob initialencounter/liteloader:llonebot
