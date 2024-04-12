@@ -12,7 +12,7 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
     rm /tmp/NapCat.linux.x64.zip && \
 
     chmod +x /root/napcat.sh && \
-    chmod +x /etc/entrypoint.sh && \
+    chmod +x /root/entrypoint.sh && \
 
     echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
