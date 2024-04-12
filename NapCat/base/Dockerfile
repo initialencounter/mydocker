@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     libatspi2.0-0 \
     libx11-xcb1 \
     unzip \
+    curl \
     supervisor && \   
     apt autoremove -y && \
     apt clean && \
