@@ -2,7 +2,7 @@
 
 sed -i "s|COMMAND|bash /root/napcat.sh -q $ACCOUNT|" /etc/supervisord.conf
 
-CONFIG_PATH=/root/config/config_$ACCOUNT.json
+CONFIG_PATH=/root/config/onebot11_$ACCOUNT.json
 # 容器首次启动时执行
 if [ ! -f "$CONFIG_PATH" ]; then
     cp -f /root/config.txt $CONFIG_PATH
