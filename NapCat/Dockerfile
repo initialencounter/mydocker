@@ -1,6 +1,7 @@
 FROM initialencounter/napcat:base
 
 COPY NapCat.linux.x64.zip /tmp/NapCat.linux.x64.zip
+COPY config.txt entrypoint.sh /root/
 
 # 安装Linux QQ
 RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.7_240410_amd64_01.deb && \
@@ -8,15 +9,17 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
 
     # 安装 napcat
     unzip /tmp/NapCat.linux.x64.zip -d /root/ && \
-    chmod +x /root/napcat.sh && \
     rm /tmp/NapCat.linux.x64.zip && \
+
+    chmod +x /root/napcat.sh && \
+    chmod +x /etc/entrypoint.sh && \
 
     echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
     echo "[program:napcat]" >> /etc/supervisord.conf && \
-    echo "command=bash /root/napcat.sh" >> /etc/supervisord.conf
+    echo "command=COMMAND" >> /etc/supervisord.conf
 
 WORKDIR "/root"
 
-CMD ["supervisord"]
+ENTRYPOINT ["/root/entrypoint.sh"]
 
