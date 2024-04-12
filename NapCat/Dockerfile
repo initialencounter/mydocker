@@ -1,0 +1,22 @@
+FROM initialencounter/napcat:base
+
+COPY NapCat.linux.x64.zip /tmp/NapCat.linux.x64.zip
+
+# 安装Linux QQ
+RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.7_240410_amd64_01.deb && \
+    dpkg -i --force-depends /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
+
+    # 安装 napcat
+    unzip NapCat.linux.x64.zip -d /root/ && \
+    chmod +x /root/napcat.sh && \
+    rm /tmp/NapCat.linux.x64.zip && \
+
+    echo "[supervisord]" > /etc/supervisord.conf && \
+    echo "nodaemon=true" >> /etc/supervisord.conf && \
+    echo "[program:napcat]" >> /etc/supervisord.conf && \
+    echo "command=bash /root/napcat.sh" >> /etc/supervisord.conf
+
+WORKDIR "/root"
+
+CMD ["exec", "supervisord"]
+
