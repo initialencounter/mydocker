@@ -20,16 +20,10 @@ if [ ! -f "$CONFIG_PATH" ]; then
         sed -i "s/\"HTTP_URLS\"/\"\"/" $CONFIG_PATH
     fi
 
-    if [ "$WS_URLS" ]; then
-        sed -i "s/WS_URLS/$WS_URLS/" $CONFIG_PATH
+    if [ "$WS_PORT" ]; then
+        sed -i "s/WS_PORT/$WS_PORT/" $CONFIG_PATH
     else
-        sed -i "s/WS_URLS/3001/" $CONFIG_PATH
-    fi
-
-    if [ "$WS_HOST" ]; then
-        sed -i "s|WS_HOST|$WS_HOST|" $CONFIG_PATH
-    else
-        sed -i "s/\"WS_HOST\"/\"\"/" $CONFIG_PATH
+        sed -i "s/WS_PORT/3001/" $CONFIG_PATH
     fi
 
     if [ "$HTTP_ENABLE" ]; then
@@ -54,6 +48,12 @@ if [ ! -f "$CONFIG_PATH" ]; then
         sed -i "s/WSR_ENABLE/$WSR_ENABLE/" $CONFIG_PATH
     else
         sed -i "s/WSR_ENABLE/false/" $CONFIG_PATH
+    fi
+
+    if [ "WS_URLS" ]; then
+        sed -i "s/WS_URLS/$WS_URLS/" $CONFIG_PATH
+    else
+        sed -i "s/\"WS_URLS\"/\"\"/" $CONFIG_PATH
     fi
 
     if [ "$HEART" ]; then
