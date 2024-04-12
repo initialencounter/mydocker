@@ -7,7 +7,7 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
     dpkg -i --force-depends /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
 
     # 安装 napcat
-    unzip NapCat.linux.x64.zip -d /root/ && \
+    unzip /tmp/NapCat.linux.x64.zip -d /root/ && \
     chmod +x /root/napcat.sh && \
     rm /tmp/NapCat.linux.x64.zip && \
 
