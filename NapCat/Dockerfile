@@ -18,5 +18,5 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
 
 WORKDIR "/root"
 
-CMD ["sh -c exec supervisord"]
+CMD ["supervisord"]
 
