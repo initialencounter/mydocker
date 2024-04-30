@@ -1,0 +1,30 @@
+from nvidia/cuda:12.1.0-devel-ubuntu22.04
+
+# set label
+LABEL maintainer="initialencounter"
+LABEL description="cuda12.1"
+LABEL custom_message="cuda:12.1.0-devel-ubuntu22.04"
+
+RUN mkdir -p /root/.cache/
+COPY huggingface /root/.cache/
+RUN apt update
+ENV DEBIAN_FRONTEND=noninteractive
+# xfce+tightvnvsercer
+RUN apt-get update && \
+    apt-get install -y vim wget git sudo openssh-server && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# install miniconda
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh && \
+    bash Miniconda3-py310_23.11.0-2-Linux-x86_64.sh -b -p /opt/miniconda3 && \
+    echo ". /opt/miniconda3/bin/activate" >> ~/.bashrc
+
+# install baichuan2
+RUN git clone https://github.com/baichuan-inc/Baichuan2 && \
+    cd Baichuan2 && \
+    . /opt/miniconda3/bin/activate && \
+    sed -i 's/13B/7B/g' OpenAI_api.py && \
+    pip install -r requirements.txt
+
+ENTRYPOINT ["/opt/nvidia/nvidia_entrypoint.sh"]
