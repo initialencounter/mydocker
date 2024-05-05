@@ -14,7 +14,7 @@ RUN apt-get update && \
     /var/tmp/* && \
     cd /koishi && \
     bun install && \
-    zip koishi.zip /koishi && \
+    zip /koishi.zip /koishi && \
     rm -rf /koishi && \
     chmod +x /entrypoint.sh
 
