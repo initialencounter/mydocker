@@ -15,7 +15,8 @@ RUN apt-get update && \
     cd /koishi && \
     bun install && \
     zip koishi.zip /koishi && \
-    rm -rf /koishi
+    rm -rf /koishi && \
+    chmod +x /entrypoint.sh
 
 VOLUME ["/koishi"]
 ENTRYPOINT ["/entrypoint.sh"]
