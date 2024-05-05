@@ -14,7 +14,7 @@ RUN apt-get update && \
     /var/tmp/* && \
     cd /koishi && \
     bun install && \
-    zip boilerplate.zip /koishi && \
+    zip koishi.zip /koishi && \
     rm -rf /koishi
 
 VOLUME ["/koishi"]

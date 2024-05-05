@@ -1,0 +1,35 @@
+{"id":1,"type":"info","level":2,"name":"app","meta":{},"content":"\u001b[38;5;15;1mKoishi/4.17.5\u001b[0m","timestamp":1714910248032}
+{"id":2,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:entry\u001b[0m","timestamp":1714910248041}
+{"id":3,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:server\u001b[0m","timestamp":1714910248041}
+{"id":4,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mserver:14g1nf\u001b[0m","timestamp":1714910248042}
+{"id":5,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:basic\u001b[0m","timestamp":1714910248088}
+{"id":6,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mcommands:ui5nh1\u001b[0m","timestamp":1714910248088}
+{"id":7,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mhelp:b623ph\u001b[0m","timestamp":1714910248090}
+{"id":8,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mlocales:wwvmhq\u001b[0m","timestamp":1714910248091}
+{"id":9,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mproxy-agent:51vqg6\u001b[0m","timestamp":1714910248093}
+{"id":10,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mrate-limit:m78diy\u001b[0m","timestamp":1714910248143}
+{"id":11,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mtelemetry:egsrfp\u001b[0m","timestamp":1714910248144}
+{"id":12,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:console\u001b[0m","timestamp":1714910248145}
+{"id":13,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mactions:97haoh\u001b[0m","timestamp":1714910248145}
+{"id":14,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45manalytics:3p0qhk\u001b[0m","timestamp":1714910248146}
+{"id":15,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mconfig:abtjcl\u001b[0m","timestamp":1714910248148}
+{"id":16,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mconsole:o88xmw\u001b[0m","timestamp":1714910248165}
+{"id":17,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mdataview:y5vkrj\u001b[0m","timestamp":1714910248168}
+{"id":18,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mexplorer:kbf0gn\u001b[0m","timestamp":1714910248170}
+{"id":19,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mlogger:cldvc4\u001b[0m","timestamp":1714910248185}
+{"id":20,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45minsight:3p82aw\u001b[0m","timestamp":1714910248186}
+{"id":21,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mmarket:9bx2mf\u001b[0m","timestamp":1714910248187}
+{"id":22,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mnotifier:uuxidq\u001b[0m","timestamp":1714910248201}
+{"id":23,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45moobe:ypzy1n\u001b[0m","timestamp":1714910248203}
+{"id":24,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45msandbox:i3rxgd\u001b[0m","timestamp":1714910248205}
+{"id":25,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mstatus:jqnzlh\u001b[0m","timestamp":1714910248207}
+{"id":26,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mtheme-vanilla:r7709z\u001b[0m","timestamp":1714910248220}
+{"id":27,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:storage\u001b[0m","timestamp":1714910248221}
+{"id":28,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mdatabase-sqlite:pu0ymn\u001b[0m","timestamp":1714910248221}
+{"id":29,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45massets-local:34jebc\u001b[0m","timestamp":1714910248226}
+{"id":30,"type":"info","level":2,"name":"loader","meta":{},"content":"apply plugin \u001b[38;5;45mgroup:adapter\u001b[0m","timestamp":1714910248228}
+{"id":31,"type":"info","level":2,"name":"assets","meta":{},"content":"missing config \"selfUrl\", fallback to \"file:\" scheme","timestamp":1714910248246}
+{"id":32,"type":"info","level":2,"name":"server","meta":{},"content":"server listening at \u001b[38;5;57mhttp://127.0.0.1:5141\u001b[0m","timestamp":1714910248261}
+{"id":33,"type":"info","level":2,"name":"console","meta":{},"content":"webui is available at \u001b[38;5;166mhttp://127.0.0.1:5141\u001b[0m","timestamp":1714910248261}
+{"id":39,"type":"error","level":1,"name":"app","meta":{},"content":"Error: child process exited with code 1\n    at ChildProcess.<anonymous> (C:\\Users\\29115\\dev\\mydocker\\koishi-bun\\boilerplate\\node_modules\\get-registry\\lib\\index.js:16:20)\n    at ChildProcess.emit (node:events:514:28)\n    at ChildProcess._handle.onexit (node:internal/child_process:294:12)","timestamp":1714910248287}
+{"id":60,"type":"info","level":2,"name":"loader","meta":{},"content":"reload plugin \u001b[38;5;45mmarket:9bx2mf\u001b[0m","timestamp":1714910261981}
