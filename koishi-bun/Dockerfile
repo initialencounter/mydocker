@@ -2,7 +2,8 @@ FROM oven/bun
 
 WORKDIR "/koishi"
 
-COPY koishi entrypoint.sh /
+COPY koishi /koishi
+COPY entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && \
     apt-get install -y \
@@ -14,10 +15,10 @@ RUN apt-get update && \
     /var/tmp/* && \
     cd /koishi && \
     bun install && \
-    zip /koishi.zip /koishi && \
+    zip -r /koishi.zip /koishi && \
     rm -rf /koishi && \
     chmod +x /entrypoint.sh
 
 VOLUME ["/koishi"]
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["bun", "start"]
+CMD ["bun", "node_modules/koishi/lib/cli/index.js", "start"]

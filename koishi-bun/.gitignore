@@ -1,10 +1,10 @@
 lib
 dist
-/boilerplate/cache
-/boilerplate/data
-/boilerplate/temp
-/boilerplate/node_modules
-/boilerplate/locales
+/koishi/cache
+/koishi/data
+/koishi/temp
+/koishi/node_modules
+/koishi/locales
 external
 
 .env.local
