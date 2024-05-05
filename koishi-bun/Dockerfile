@@ -2,8 +2,7 @@ FROM oven/bun
 
 WORKDIR "/koishi"
 
-COPY boilerplate /koishi
-
+COPY koishi entrypoint.sh /
 
 RUN apt-get update && \
     apt-get install -y \
