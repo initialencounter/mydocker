@@ -10,4 +10,4 @@
 
 ## 使用教程
 
-<https://koishi.chat/manual/starter/boilerplate.html>
+https://koishi.chat/manual/starter/boilerplate.html
