@@ -14,13 +14,7 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
     mkdir -p ~/.vnc && \
 
     # 设置启动脚本权限
-    chmod +x /root/start.sh  && \
-
-    # 配置supervisor
-    echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
-    echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
-    echo "[program:x11vnc]" >> /etc/supervisor/supervisord.conf && \
-    echo "command=/usr/bin/x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd" >> /etc/supervisor/supervisord.conf
+    chmod +x /root/start.sh
 
 VOLUME ["/LiteLoader"]
 
