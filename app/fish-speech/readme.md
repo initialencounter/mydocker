@@ -1,4 +1,4 @@
-# 1. 租GPU
+# 1. 租 GPU
 
 # 2. 安装 docker
 
@@ -11,7 +11,9 @@ bash -c "$(curl -L https://github.com/initialencounter/mydocker/raw/main/utils/n
 ```shell
 docker run -it -p 3389:7860 --gpus 0 initialencounter/fish-speech
 ```
+
 # start service
+
 ```shell
 cd /app/fish-speech
 HF_ENDPOINT=https://hf-mirror.com python -m zibai tools.api_server:app --listen 0.0.0.0:7860
