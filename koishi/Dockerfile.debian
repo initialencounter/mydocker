@@ -4,7 +4,7 @@ COPY ./entrypoint.sh /
 RUN apt update && apt install ffmpeg chromium git xz-utils curl unzip -y
 
 # 克隆 nodejs
-RUN curl -L -o nodejs.tar.xz https://npmmirror.com/mirrors/node/v20.16.0/node-v20.16.0-linux-x64.tar.xz && \
+RUN curl -L -o nodejs.tar.xz https://nodejs.org/dist/v20.16.0/node-v20.16.0-linux-x64.tar.xz && \
 mkdir -p /usr/local/nodejs && \
 tar -xf nodejs.tar.xz -C /usr/local/nodejs && \
 ls /usr/local/nodejs && \
