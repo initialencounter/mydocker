@@ -8,5 +8,4 @@ if [ ! -e "/koishi/package.json" ]; then
   sed -i.bak '/"packageManager":/d' /koishi/package.json
 fi
 
-export PATH=\$PATH:/usr/local/nodejs/node-v20.16.0-linux-x64/bin
 exec "$@"
