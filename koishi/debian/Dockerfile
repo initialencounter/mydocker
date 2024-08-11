@@ -12,7 +12,7 @@ curl -L -o /usr/local/nodejs/node-v20.16.0-linux-x64/bin/yarn https://repo.yarnp
 
 # 下载koishi
 RUN version=$(curl -Ls "https://api.github.com/repos/koishijs/boilerplate/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') && \
-    curl -L -o /boilerplate.zip https://mirror.ghproxy.com/https://github.com/koishijs/boilerplate/releases/download/${version}/boilerplate-${version}-linux-arm64-node20.zip
+    curl -L -o /boilerplate.zip https://github.com/koishijs/boilerplate/releases/download/${version}/boilerplate-${version}-linux-arm64-node20.zip
 
 VOLUME ["/koishi"]
 # 设置工作目录
