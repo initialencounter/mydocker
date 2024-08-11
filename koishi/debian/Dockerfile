@@ -22,4 +22,5 @@ VOLUME ["/koishi"]
 # 设置工作目录
 WORKDIR "/koishi"
 
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["yarn", "start"]
