@@ -1,4 +1,4 @@
-name: llonebot
+name: koishi-debian
 
 on:
   workflow_dispatch:
