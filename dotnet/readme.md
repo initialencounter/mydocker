@@ -1,0 +1,1 @@
+docker build -t initialencounter/dotnet -f Dockerfile .
