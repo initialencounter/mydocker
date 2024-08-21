@@ -4,7 +4,7 @@ COPY entrypoint.sh /app/
 COPY Lagrange.OneBot app/bin/
 
 RUN apt-get update && apt-get install -y gosu ca-certificates && \
-apt-get clean && rm -rf /var/lib/apt/lists/* && \
+apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 apt-get autoremove -y && apt-get autoclean -y
 
 RUN chmod +x /app/entrypoint.sh && useradd -m user && \
