@@ -32,3 +32,9 @@ systemctl restart docker
     "hub.docker.jiankunking.io:5000"
 ]
 ```
+
+## remove none tag image
+
+```bash
+docker rmi `docker images -q -f dangling=true`
+```
