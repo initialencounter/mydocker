@@ -6,7 +6,8 @@ if [ ! -f "/LiteLoader/package.json" ]; then
     unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader
 fi
 
-echo "nameserver 114.114.114.114\nsearch lan" | tee /etc/resolv.conf > /dev/null
+echo "nameserver 114.114.114.114" > /etc/resolv.conf
+echo "nameserver 223.5.5.5" >> /etc/resolv.conf
 mkdir /run/user/$(id -u)
 export DISPLAY=:1
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
