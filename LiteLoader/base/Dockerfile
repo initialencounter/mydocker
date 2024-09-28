@@ -1,8 +1,8 @@
 FROM initialencounter/liteloader:base
 COPY start.sh /root/
 
-# 安装Linux QQ_3.2.12_240925
-RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.12_240925_amd64_01.deb && \
+# 安装Linux QQ
+RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.12_240927_amd64_01.deb && \
     dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
 
     # 下载LiteLoader 1.1.1
@@ -11,9 +11,8 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
     echo 'require("/LiteLoader");' > /opt/QQ/resources/app/app_launcher/llqqnt.js && \
     sed -i 's|"main": "[^"]*"|"main": "./app_launcher/llqqnt.js"|' /opt/QQ/resources/app/package.json && \
 
-    # 创建必要的目录
-    mkdir -p ~/.vnc && \
-
+    # 下载 whale
+    curl -L -o /tmp/whale.zip https://github.com/initialencounter/whale/releases/download/v0.1.1/whale.zip && \
     # 设置启动脚本权限
     chmod +x /root/start.sh
 
