@@ -2,13 +2,13 @@
 
 # 安装 Liteloader
 if [ ! -f "/LiteLoader/package.json" ]; then
-    mkdir -p /LiteLoader && \
+    mkdir -p /LiteLoader
     unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader
 fi
 
-# 安装 Liteloader
+# 安装 whale
 if [ ! -f "/LiteLoader/plugins/whale/manifest.json" ]; then
-    mkdir -p /LiteLoader/plugins/whale && \
+    mkdir -p /LiteLoader/plugins/whale
     unzip /tmp/whale.zip -d /LiteLoader/plugins/whale
 fi
 
