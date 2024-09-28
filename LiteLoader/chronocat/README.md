@@ -1,6 +1,9 @@
 # 使用方法
 
 ```shell
+# build
+docker build -f Dockerfile -t initialenconter/liteloader:chronocat .
+# run
 docker run -d -e VNC_PASSWD=vncpasswd -p 6081:6081 -p 5500:5500 --name cc initialencounter/liteloader:chronocat
 ```
 
