@@ -1,23 +1,20 @@
 # 使用方法
 
 ```shell
-docker run -d -e VNC_PASSWD=vncpasswd -p 6081:6081 -p 5500:5500 --name cc initialencounter/liteloader:chronocat
+# build
+docker build -f Dockerfile -t initialenconter/liteloader:chronocat .
+# run
+docker run -d -e VNC_PASSWD=vncpasswd -p 5500:5500 --name cc initialencounter/liteloader:chronocat
 ```
-
-## 环境变量
-
-    - VNC_PASSWD vnc 密码
 
 ## 端口
 
-    - 5900 VNC
-    - 6081 noVNC
     - 5500 satori
 
 ## 目录
 
     - /LiteLoader LiteLoader 安装位置
-    - /opt/QQ QQ安装位置
+    - /opt/QQ QQ 安装位置
 
 ## 数据卷
 

@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# 安装 Liteloader
-if [ ! -f "/LiteLoader/package.json" ]; then
-    mkdir -p /LiteLoader
-    unzip /tmp/LiteLoaderQQNT.zip -d /LiteLoader
-fi
-
-# 安装 whale
-if [ ! -f "/LiteLoader/plugins/whale/manifest.json" ]; then
-    mkdir -p /LiteLoader/plugins/whale
-    unzip /tmp/whale.zip -d /LiteLoader/plugins/whale
-fi
-
 echo "nameserver 114.114.114.114" > /etc/resolv.conf
 echo "nameserver 223.5.5.5" >> /etc/resolv.conf
 mkdir /run/user/$(id -u)
@@ -40,4 +28,4 @@ if [ "$ENABLE_NOVNC" ]; then
     nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &
 fi
 sleep 2
-qq --no-sandbox
+/bin/bash
