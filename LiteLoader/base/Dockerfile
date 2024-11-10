@@ -12,7 +12,7 @@ RUN curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.
     sed -i 's|"main": "[^"]*"|"main": "./app_launcher/llqqnt.js"|' /opt/QQ/resources/app/package.json && \
 
     # 下载 whale
-    curl -L -o /tmp/whale.zip https://github.com/initialencounter/whale/releases/download/v0.1.1/whale.zip && \
+    curl -L -o /tmp/whale.zip https://github.com/initialencounter/whale/releases/download/v0.1.2/whale.zip && \
     # 设置启动脚本权限
     chmod +x /root/start.sh
 
