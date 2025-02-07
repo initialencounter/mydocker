@@ -36,7 +36,7 @@ systemctl restart docker
 ## remove none tag image
 
 ```bash
-docker rmi `docker images -q -f dangling=true`
+docker rmi $(docker images --filter=dangling=true -q)
 ```
 ### remove exited container
 
