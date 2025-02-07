@@ -37,6 +37,8 @@ systemctl restart docker
 
 ```bash
 docker rmi $(docker images --filter=dangling=true -q)
+# or
+docker image prune
 ```
 ### remove exited container
 
