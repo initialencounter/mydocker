@@ -38,3 +38,8 @@ systemctl restart docker
 ```bash
 docker rmi `docker images -q -f dangling=true`
 ```
+### remove exited container
+
+```bash
+docker rm $(docker ps -aqf status=exited)
+```
