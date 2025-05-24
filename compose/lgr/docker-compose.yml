@@ -1,0 +1,15 @@
+version: "3"
+services:
+  lgr:
+    volumes:
+      - /root/lgr/bin:/app/bin
+      - /root/lgr/data:/app/data
+    ports:
+      - 8081:8081
+    environment:
+      - UID=0
+      - GID=0
+    container_name: lgr
+    network_mode: bridge
+    image: lgr
+    restart: always

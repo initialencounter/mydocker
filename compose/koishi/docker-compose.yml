@@ -1,0 +1,13 @@
+version: "3"
+services:
+    koishi:
+        volumes:
+            - /root/koishi:/koishi
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+        ports:
+            - 5140:5140
+        container_name: koishi
+        network_mode: bridge
+        image: koishijs/koishi
+        restart: always

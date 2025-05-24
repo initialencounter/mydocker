@@ -1,0 +1,18 @@
+version: "3"
+networks:
+  mines_net:
+    external:
+      name: mines_net
+services:
+    mines:
+        networks:
+            - mines_net
+        volumes:
+            - ./config.yml:/root/mines/config.yml
+            - /root/mines:/root/mines
+        ports:
+            - 2330:8080
+        container_name: mines
+        image: ubuntu
+        restart: always
+        command: bash -c "cd /root/mines && ./mines" # tail -f /dev/null

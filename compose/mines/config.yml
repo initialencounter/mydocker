@@ -1,0 +1,21 @@
+app:
+  name: "MineSweeper Server"
+  version: "1.0.0"
+server:
+  port: 8080
+  host: "0.0.0.0"
+mine:
+  width: 30
+  height: 16
+  mines: 99
+database:
+  host: "mysql"
+  port: 3306
+  user: "root"
+  password: "mines_net"
+smtp:
+  host: "example.gmail.com"
+  port: "587"
+  tls: true
+  username: ""
+  password: ""
